@@ -78,7 +78,7 @@ html.transition,
 html.transition *,
 html.transition *:before,
 html.transition *:after {
-  transition: all 2750ms !important;
+  transition: all 750ms !important;
   transition-delay: 0 !important; }
 
 @media screen and (max-width: 800px) {
@@ -87,7 +87,10 @@ html.transition *:after {
     justify-items: center; }
   .info {
     width: 100%;
-    text-align: center; } }
+    text-align: center; }
+  .main-title {
+    font-size: 3.6rem;
+    padding: 2rem; } }
 
 .moveDown {
   margin-left: 1rem; }
@@ -121,12 +124,15 @@ html.transition *:after {
     list-style-type: none;
     margin-left: -4rem; }
   .card__about {
+    visibility: hidden;
     position: absolute;
     margin-left: 51%;
     z-index: 10;
     width: 42rem;
     margin-top: -2rem;
-    animation: slideUp .5s; }
+    transition: all .3s;
+    opacity: 0;
+    transform: translateY(-1rem); }
     .card__about--paragraph {
       font-family: 'Merriweather', serif;
       color: var(--card-text);
@@ -148,34 +154,15 @@ html.transition *:after {
 
 .u-underline {
   text-decoration: solid underline;
-  cursor: pointer; }
+  cursor: help; }
 
 .info-text {
   color: var(--card-text) !important; }
 
-.hide {
-  opacity: 0;
-  animation: slideDown .5s; }
+.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0); }
 
 #convertKmToMi {
   cursor: pointer; }
-
-@keyframes slideUp {
-  0% {
-    transform: translateY(2rem);
-    opacity: 0; }
-  30% {
-    opacity: .5; }
-  100% {
-    transform: translateY(0);
-    opacity: 1; } }
-
-@keyframes slideDown {
-  0% {
-    transform: translateY(0);
-    opacity: 1; }
-  30% {
-    opacity: .7; }
-  100% {
-    transform: translateY(2rem);
-    opacity: 0; } }
