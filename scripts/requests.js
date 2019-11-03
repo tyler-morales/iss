@@ -4,6 +4,7 @@ const api_url_astros = 'http://api.open-notify.org/astros.json'
 
 //async await getISS fn
 async function getISS() {
+    const zoomLevel = 2
     const response = await fetch(api_url_id)
     if (response.status === 200) {
         // console.log('Success 🎊, coordinates loaded')
@@ -16,7 +17,7 @@ async function getISS() {
 
         // centers marker in middle of map
         if (firstTime) {
-            mymap.setView([latitude, longitude], 2);
+            mymap.setView([latitude, longitude], zoomLevel);
             firstTime = false;
         }
 

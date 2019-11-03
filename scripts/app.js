@@ -14,64 +14,69 @@ const btnISS = document.getElementById('aboutBtn')
 
 const bgEl = document.querySelector('body')
 
+// Globals
+let firstTime = true
+
 // switch between conversions
-btn.addEventListener('click', () => {
+// btn.addEventListener('click', () => {
 
-    // check for session storage
-    if (sessionStorage.getItem('velocityUnit')) {
-        console.log('session loaded')
+//     // No storage exists
+//     if (sessionStorage.getItem('velocity') == null) {
+//         //convert mi -> km
+//         btn.dataset.value = 'km'
 
-        //convert mi -> km
-        if (btn.dataset.value == 'mi') {
-            btn.dataset.value = 'km'
-            // sessionStorage.setItem('velocityUnit', 'km')
+//         velStr = velEl.textContent
+//         let velClean = velStr.split(' ');
+//         velClean = Number(velClean[0].split(',').join(''))
+//         velClean = convertMiToKm(velClean).toFixed(2)
+//         velClean = formatNumber(velClean)
+//         velClean = velClean.substring(0, 9)
+//         sessionStorage.setItem('velocity', `${velClean} km/hr`)
 
-            velStr = velEl.textContent
-            let velClean = velStr.split(' ');
-            velClean = Number(velClean[0].split(',').join(''))
-            velClean = convertMiToKm(velClean).toFixed(2)
-            velClean = formatNumber(velClean)
-            velClean = velClean.substring(0, 9)
-            sessionStorage.setItem('velocityUnit', `${velClean} km/hr`)
-            velEl.textContent = `${sessionStorage.getItem('velocityUnit')}`
+//         velEl.textContent = `${sessionStorage.getItem('velocity')}`
 
-            console.log('storage exists and switched to km')
-        } else {
-            //convert km -> mi
-            btn.dataset.value = 'mi'
-            sessionStorage.setItem('velocityUnit', 'mi')
+//         console.log('storage now exists and switched to km')
+//     }
+//     // Storage exists
+//     else {
+//         console.log('session loaded')
 
-            velStr = velEl.textContent
-            let velClean = velStr.split(' ');
-            velClean = Number(velClean[0].split(',').join(''))
-            velClean = convertKmToMi(velClean).toFixed(2)
-            velClean = formatNumber(velClean)
-            velClean = velClean.substring(0, 9)
-            sessionStorage.setItem('velocityUnit', `${velClean} mi/hr`)
-            velEl.textContent = `${sessionStorage.getItem('velocityUnit')}`
+//         //convert mi -> km
+//         if (btn.dataset.value == 'mi') {
+//             btn.dataset.value == 'km'
 
-            console.log('storage exists and switched to mi')
-        }
-    }
-    // no storage exists
-    else {
-        //convert mi -> km
-        if (btn.dataset.value == 'mi') {
-            btn.dataset.value = 'km'
+//             velStr = velEl.textContent
+//             let velClean = velStr.split(' ');
+//             velClean = Number(velClean[0].split(',').join(''))
+//             velClean = convertMiToKm(velClean).toFixed(2)
+//             velClean = formatNumber(velClean)
+//             velClean = velClean.substring(0, 9)
+//             sessionStorage.setItem('velocity', `${velClean} km/hr`)
 
-            velStr = velEl.textContent
-            let velClean = velStr.split(' ');
-            velClean = Number(velClean[0].split(',').join(''))
-            velClean = convertMiToKm(velClean).toFixed(2)
-            velClean = formatNumber(velClean)
-            velClean = velClean.substring(0, 9)
-            sessionStorage.setItem('velocityUnit', `${velClean} km/hr`)
-            velEl.textContent = `${sessionStorage.getItem('velocityUnit')}`
+//             velEl.textContent = `${sessionStorage.getItem('velocity')}`
 
-            console.log('no storage exists and switched to km')
-        }
-    }
-})
+//             console.log('storage exists and switched to km')
+//         }
+
+//         //convert km -> mi
+//         if (btn.dataset.value == 'km') {
+//             btn.dataset.value == 'mi'
+
+//             velStr = velEl.textContent
+//             let velClean = velStr.split(' ');
+//             velClean = Number(velClean[0].split(',').join(''))
+//             velClean = convertMiToKm(velClean).toFixed(2)
+//             velClean = formatNumber(velClean)
+//             velClean = velClean.substring(0, 9)
+//             sessionStorage.setItem('velocity', `${velClean} mi/hr`)
+
+//             velEl.textContent = `${sessionStorage.getItem('velocity')}`
+
+//             console.log('storage exists and switched to mi')
+//         }
+//     }
+// })
+
 console.log(sessionStorage)
 
 
@@ -83,10 +88,10 @@ btnISS.addEventListener('mouseleave', () => {
     aboutEl.classList.remove('show')
 })
 
-let firstTime = true
+
 
 // Making a map and tiles
-const mymap = L.map('issMap').setView([0, 0], 2);
+const mymap = L.map('issMap').setView([0, 0], 1);
 const attribution =
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -135,15 +140,6 @@ function renderDOM() {
             latEl.textContent = `${lat}°`
             lonEl.textContent = `${lon}°`
             velEl.textContent = `${velMi} mi/hr`
-            // if (sessionStorage.getItem('velocityUnit')) {
-            //     // session exists
-            //     velEl.textContent = `${sessionStorage.getItem('velocityUnit')}`
-            //     console.log('get # from storage')
-            // } else {
-            //     // no storage exists yet
-            //     velEl.textContent = `${velMi} mi/hr`
-            //     console.log('no storage exists')
-            // }
 
             visibility == 'daylight' ? regularMode() : darkMode()
 
