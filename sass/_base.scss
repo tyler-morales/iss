@@ -1,0 +1,129 @@
+:root {
+    --color-primary-blue: #105bd8;
+    --color-primary-darkest: #061f4a;
+    --color-secondary-red: #dd361c;
+    --color-secondary-darkest: #99231B;
+    --color-primary-black: #000000;
+    --color-primary-white: #ffffff;
+
+    --color-cool-blue: #205493;
+    --color-primary-alt: #02BFE7;
+
+    --color-gray-lightest: #f1f1f1;
+    --color-gray-dark: #323a45;
+
+    // global
+    --bg-color: var(--color-gray-lightest);
+    --page-title: var(--color-primary-white);
+
+    // card light
+    --card-bg: var(--color-primary-white);
+    --card-header: var(--color-primary-blue);
+    --card-l-side: var(--color-secondary-red);
+    --card-text: var(--color-primary-black);
+
+    // card light - stats
+    --card-stats-items: var(--color-secondary-red);
+
+}
+
+html[data-theme='dark'] {
+    // global
+    --bg-color: var(--color-primary-darkest);
+    --page-title: var(--color-primary-white);
+
+
+    // card dark
+    --card-bg: var(--color-gray-dark);
+    --card-header: var(--color-cool-blue);
+    --card-l-side: var(--color-secondary-darkest);
+    --card-text: var(--color-primary-white);
+
+    // card light - stats
+    --card-stats-items: var(--color-primary-alt);
+
+}
+
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    min-height: 100vh;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 4.6rem;
+    color: var(--page-title);
+    padding: 4rem;
+    background-color: #205493;
+    margin: 0;
+}
+
+.map {
+    height: 50rem;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.dashboard {
+    //grid
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-gap: 3rem;
+    justify-content: center;
+
+    max-width: 75%;
+    margin: 0 auto;
+    margin-top: 5rem;
+
+}
+
+footer {
+    text-align: center;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-top: 5rem;
+    color: var(--color-primary-black);
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+    transition: all 2750ms !important;
+    transition-delay: 0 !important;
+}
+
+@media screen and (max-width: 800px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .info {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-title {
+        font-size: 3.6rem;
+        padding: 2rem;
+
+    }
+}

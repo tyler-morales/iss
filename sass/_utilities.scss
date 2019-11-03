@@ -1,0 +1,22 @@
+.u-mt {
+    margin-top: 3rem;
+}
+
+.u-underline {
+    text-decoration: solid underline;
+    cursor: help;
+}
+
+.info-text {
+    color: var(--card-text) !important;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#convertKmToMi {
+    cursor: pointer;
+}
