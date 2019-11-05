@@ -43,7 +43,30 @@
     <!-- dashboard -->
     <div class="dashboard">
         <div class="card-container">
+
             <!-- stats -->
+            <li id="stats" class="dropdown card card__stats">
+                <a href="#" data-toggle="dropdown" class="card--head">Stats<i class="icon-arrow"></i></a>
+                <ul class="dropdown-menu">
+                    <li class="card--label">Latitude: <span id="lat" class="info-text">⏳</span></li>
+                    <li class="card--label">Longitude: <span id="lon" class="info-text">⏳</span></li>
+                    <li class="card--label">Speed: <span id="vel" class="info-text">⏳</span>
+                        <buttton id="convertKmToMi" data-value="mi">🔁</buttton>
+                    </li>
+                    <li class="card--label">Visibility: <span id="vis" class="info-text">⏳</span> </li>
+                    <li class="card--label">Country: <span id="country" class="info-text flag">⏳</span></li>
+                </ul>
+            </li>
+
+            <!-- astronauts -->
+            <li id="astroNames" class="dropdown card card__stats u-mt">
+                <a href="#" data-toggle="dropdown" class="card--head">Astronauts: <span id="astros1">⏳</span>
+                    👩🏼‍🚀<i class="icon-arrow"></i></a>
+                <ul id="people" class="dropdown-menu info-text"></ul>
+            </li>
+
+            <!-- stats -->
+            <!--
             <section id="stats" class="card card__stats">
                 <h2 class="card--head">Stats</h2>
                 <ul>
@@ -56,12 +79,15 @@
                     <li class="card--label">Country: <span id="country" class="info-text flag">⏳</span></li>
                 </ul>
             </section>
+            -->
 
             <!-- Astronauts -->
-            <section id="astroNames" class="card card__astros u-mt">
+
+            <!-- <section id="astroNames" class="card card__astros u-mt">
                 <h2 class="card--head">Astronauts: <span id="astros1">⏳</span> 👩🏼‍🚀</h2>
                 <ul id="people" class="info-text"></ul>
-            </section>
+            </section> -->
+
 
 
         </div>

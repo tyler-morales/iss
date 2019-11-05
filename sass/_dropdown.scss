@@ -1,0 +1,37 @@
+.dropdown {
+
+    [data-toggle="dropdown"] {
+        position: relative;
+        display: block;
+        color: var(--color-primary-white);
+    }
+
+    .icon-arrow {
+        position: absolute;
+        display: block;
+        font-size: 0.7em;
+        color: var(--color-primary-white);
+        top: 14px;
+        right: 10px;
+
+        &:before {
+            content: '\25BC';
+        }
+    }
+
+    .dropdown-menu {
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .show {
+        display: block;
+        max-height: 9999px;
+        margin-top: 4rem;
+    }
+
+    .hide {
+        max-height: 0;
+    }
+}
+
