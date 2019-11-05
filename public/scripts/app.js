@@ -17,7 +17,7 @@ const bgEl = document.querySelector('body')
 // Globals
 let firstTime = true
 
-// switch between conversions
+// // switch between conversions
 // btn.addEventListener('click', () => {
 
 //     // No storage exists
@@ -193,4 +193,4 @@ function renderAstrosDOM() {
 
 renderAstrosDOM()
 renderDOM()
-setInterval(renderDOM, 10000)
+// setInterval(renderDOM, 10000)
