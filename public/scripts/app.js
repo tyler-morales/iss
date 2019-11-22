@@ -193,4 +193,4 @@ function renderAstrosDOM() {
 
 renderAstrosDOM()
 renderDOM()
-// setInterval(renderDOM, 10000)
+setInterval(renderDOM, 10000)
