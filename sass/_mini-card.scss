@@ -1,0 +1,39 @@
+.card-mini {
+    display: none;
+    
+    // shape
+    margin: 0;
+    width: max-content;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow: hidden;
+
+    // colors
+    box-shadow: 0 0 1.8rem 0 rgba(0, 0, 0, .25);
+    background-color: var(--card-bg);
+    border-left: 10px solid var(--card-l-side);
+
+    // position
+    margin-top: 75vh;
+    margin-left: 2.5rem;
+    position: absolute;
+    z-index: 10;
+
+    // typography
+    font-weight: normal;
+    font-size: 1.8rem;
+    letter-spacing: .5px;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &--label {
+        color: var(--color-secondary-red);
+    }
+
+    &--btn {
+        // margin-top: 1rem;
+    }
+}

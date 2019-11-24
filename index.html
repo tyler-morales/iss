@@ -5,10 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" `tent="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Author: Tyler Morales, Catagory: International Space Station Live Tracker">
+
     <!-- google font source sans pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap" rel="stylesheet">
     <!-- google font merriwweather -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <!-- google font space mono -->
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <link href="/css/all.css" rel="stylesheet">
     <!-- leaflet map api -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -23,51 +29,80 @@
 </head>
 
 <body>
-    <div class="title-box">
 
-        <h1 class="main-title">Where in the world is the <span id="aboutBtn" class="u-underline">ISS</span>*?</h1>
+    <!-- <h1 class="main-title">Where in the world is the <span id="aboutBtn">ISS</span>?</span></h1> -->
 
-        <!-- ABOUT -->
-        <section id="about" class="card card__about">
-            <h2 class="card--head">About the ISS</h2>
-            <p class="card__about--paragraph">The International Space Station (ISS) is a habitable, artificial
-                satellite in low Earth orbit. It
-                is a joint project between five participating space agencies, the American NASA, the Russian RSA,
-                the Japanese JAXA, the European ESA, and the Canadian CSA. The current crew of <span
-                    id="astros2"></span> is
-                part of
-                Expedition 60</p>
-        </section>
+    <!-- CARD (REG)-->
+    <div id="card-reg" class="card">
+        <div class="card--head">Where in the world is the ISS?</div>
+
+        <!-- Stats -->
+        <ul class="card__stats">
+
+            <li class="card__stats--stat">
+                <img src="icons/lat.png" class="icon" alt="latitude icon">
+                Latitude: <span id="lat" class="info-text">⏳</span>
+            </li>
+
+            <li class="card__stats--stat">
+                <img src="icons/lon.png" class="icon" alt="latitude icon">
+                Longitude: <span id="lon" class="info-text">⏳</span>
+            </li>
+
+            <li class="card__stats--stat">
+                <img src="icons/velocity.png" class="icon" alt="latitude icon">
+                Velocity: <span id="vel" class="info-text">⏳</span>
+            </li>
+
+            <li class="card__stats--stat">
+                <img src="icons/binoculars.png" class="icon" alt="latitude icon">
+                Visibility: <span id="vis" class="info-text">⏳</span>
+            </li>
+
+            <li class="card__stats--stat">
+                <img src="icons/globe.png" class="icon" alt="latitude icon">
+                Country: <span id="country" class="info-text">⏳</span>
+            </li>
+
+        </ul>
+
+        <!-- About btn -->
+        <button id="about-btn" class="card--about-btn" data-visibility="hidden">+ About the ISS</button>
+
+        <p id="about-info" class="card--paragraph">
+            The International Space Station (ISS) is a habitable, artificial
+            satellite in low Earth orbit. It is a joint project between five participating space agencies,
+            the American NASA, the Russian RSA, the Japanese JAXA, the European ESA, and the Canadian CSA.
+            The current crew of 6 is part of Expedition 60.
+        </p>
+
+        <div id="source" class="card--source">Source: wheretheiss.at</div>
+
+
+        <!-- minimize btn -->
+        <button id="minimize" class="resize-btn card--resize-btn">
+            <img src="icons/minimize.png" class="resize-btn--img" data-size="minimize" alt="minimize button">
+        </button>
+
     </div>
 
-    <!-- DASHBOARD -->
-    <div class="dashboard">
-        <div class="card-container">
+    <!-- CARD (SM) -->
+    <div id="card-sm" class="card-mini">
+        <div class="card-mini--label"><span id="label"></span> &#8677;</div>
 
-            <!-- STATS -->
-            <li id="stats" class="dropdown card card__stats">
-                <a href="#" data-toggle="dropdown" class="card--head">Stats<i class="icon-arrow"></i></a>
-                <ul class="dropdown-menu">
-                    <li class="card--label">Latitude: <span id="lat" class="info-text">⏳</span></li>
-                    <li class="card--label">Longitude: <span id="lon" class="info-text">⏳</span></li>
-                    <li class="card--label">Speed: <span id="vel" class="info-text">⏳</span>
-                        <buttton id="convertKmToMi" data-value="mi">🔁</buttton>
-                    </li>
-                    <li class="card--label">Visibility: <span id="vis" class="info-text">⏳</span> </li>
-                    <li class="card--label">Country: <span id="country" class="info-text flag">⏳</span></li>
-                </ul>
-            </li>
+        <div class="card-mini__container">
+            <div id="data" class="card-mini--data">⏳</div>
 
-            <!-- ASTRONAUTS -->
-            <li id="astroNames" class="dropdown card card__stats u-mt">
-                <a href="#" data-toggle="dropdown" class="card--head">Astronauts: <span id="astros1">⏳</span>
-                    👩🏼‍🚀<i class="icon-arrow"></i></a>
-                <ul id="people" class="dropdown-menu info-text"></ul>
-            </li>
-
+            <!-- Maximize btn -->
+            <button id="maximize" class="resize-btn card-mini--btn">
+                <img src="icons/maximize.png" class="resize-btn--img" data-size="minimize" alt="minimize button">
+            </button>
         </div>
-        <div id="issMap" class="map "></div>
     </div>
+
+
+    <!-- MAP -->
+    <div id="issMap" class="map "></div>
 
 
 
