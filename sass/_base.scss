@@ -41,22 +41,24 @@ html[data-theme='dark'] {
 
     // card light - stats
     --card-stats-items: var(--color-primary-alt);
-
 }
 
 html {
     font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Space Mono', monospace;
+
     box-sizing: border-box;
     font-size: 62.5%;
     margin: 0;
     padding: 0;
+
 }
 
 body {
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
-    min-height: 100vh;
+    max-height: 100vh;
 }
 
 a:link,
@@ -65,33 +67,13 @@ a:visited {
     color: inherit;
 }
 
-.main-title {
-    text-align: center;
-    font-size: 4.6rem;
-    color: var(--page-title);
-    padding: 4rem;
-    background-color: #205493;
-    margin: 0;
-}
 
 .map {
-    height: 50rem;
-    width: 100%;
-    margin: 0 auto;
+    height: 100vh;
+    width: 100vw;
+    top:0;
+    position: absolute;
     z-index: 1;
-}
-
-.dashboard {
-    //grid
-    display: grid;
-    grid-template-columns: min-content 1fr;
-    grid-gap: 3rem;
-    justify-content: center;
-
-    max-width: 75%;
-    margin: 0 auto;
-    margin-top: 5rem;
-
 }
 
 footer {
@@ -108,42 +90,4 @@ body.transition *:before,
 body.transition *:after {
     transition: all 750ms !important;
     transition-delay: 0 !important;
-}
-
-@media screen and (max-width: 800px) {
-    .dashboard {
-        // grid-template-columns: 1fr;
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    .info {
-        width: 100%;
-        text-align: center;
-    }
-
-    .main-title {
-        font-size: 3.6rem;
-        padding: 2rem;
-    }
-
-    .card__about {
-        width: 80% !important;
-        margin-top: 3rem !important;
-        margin-left: 7% !important;
-    }
-
-    .card-container {
-        display: flex;
-        align-content: center;
-        align-items: baseline;
-        margin: 0 auto;
-    }
-}
-@media screen and (max-width: 500px) {
-    
-    .card-container {
-        display: block;
-        margin-top: 3rem;
-    }
 }

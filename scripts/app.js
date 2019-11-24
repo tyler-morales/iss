@@ -1,93 +1,58 @@
-// cache the DOM
+// CACHE THE DOM
+// Stats
 const latEl = document.getElementById('lat')
 const lonEl = document.getElementById('lon')
 const velEl = document.getElementById('vel')
 const visEl = document.getElementById('vis')
-const btn = document.getElementById('convertKmToMi')
 const countryEl = document.getElementById('country')
-const astrosEl1 = document.getElementById('astros1')
-const astrosEl2 = document.getElementById('astros2')
-const astroNameEl = document.getElementById('people')
-const aboutEl = document.getElementById('about')
-const statCardEl = document.getElementById('stats')
-const btnISS = document.getElementById('aboutBtn')
 
-const bgEl = document.querySelector('body')
+// Mini Stats
+const miniStat = document.getElementById('data')
+const label = document.getElementById('label')
+
+// About btn
+const aboutBtn = document.getElementById('about-btn')
+const aboutInfo = document.getElementById('about-info')
+const sourceEl = document.getElementById('source')
+
+// Resize btn
+const minBtn = document.getElementById('minimize')
+const cardEl = document.getElementById('card-reg')
+const maxBtn = document.getElementById('maximize')
+const cardMiniEl = document.getElementById('card-sm')
 
 // Globals
 let firstTime = true
 
-// // switch between conversions
-// btn.addEventListener('click', () => {
-
-//     // No storage exists
-//     if (sessionStorage.getItem('velocity') == null) {
-//         //convert mi -> km
-//         btn.dataset.value = 'km'
-
-//         velStr = velEl.textContent
-//         let velClean = velStr.split(' ');
-//         velClean = Number(velClean[0].split(',').join(''))
-//         velClean = convertMiToKm(velClean).toFixed(2)
-//         velClean = formatNumber(velClean)
-//         velClean = velClean.substring(0, 9)
-//         sessionStorage.setItem('velocity', `${velClean} km/hr`)
-
-//         velEl.textContent = `${sessionStorage.getItem('velocity')}`
-
-//         console.log('storage now exists and switched to km')
-//     }
-//     // Storage exists
-//     else {
-//         console.log('session loaded')
-
-//         //convert mi -> km
-//         if (btn.dataset.value == 'mi') {
-//             btn.dataset.value == 'km'
-
-//             velStr = velEl.textContent
-//             let velClean = velStr.split(' ');
-//             velClean = Number(velClean[0].split(',').join(''))
-//             velClean = convertMiToKm(velClean).toFixed(2)
-//             velClean = formatNumber(velClean)
-//             velClean = velClean.substring(0, 9)
-//             sessionStorage.setItem('velocity', `${velClean} km/hr`)
-
-//             velEl.textContent = `${sessionStorage.getItem('velocity')}`
-
-//             console.log('storage exists and switched to km')
-//         }
-
-//         //convert km -> mi
-//         if (btn.dataset.value == 'km') {
-//             btn.dataset.value == 'mi'
-
-//             velStr = velEl.textContent
-//             let velClean = velStr.split(' ');
-//             velClean = Number(velClean[0].split(',').join(''))
-//             velClean = convertMiToKm(velClean).toFixed(2)
-//             velClean = formatNumber(velClean)
-//             velClean = velClean.substring(0, 9)
-//             sessionStorage.setItem('velocity', `${velClean} mi/hr`)
-
-//             velEl.textContent = `${sessionStorage.getItem('velocity')}`
-
-//             console.log('storage exists and switched to mi')
-//         }
-//     }
-// })
-
-console.log(sessionStorage)
-
-
-// hide/show about info
-btnISS.addEventListener('mouseenter', () => {
-    aboutEl.classList.add('show')
-})
-btnISS.addEventListener('mouseleave', () => {
-    aboutEl.classList.remove('show')
+// Hide/show cards
+minBtn.addEventListener('click', () => {
+    cardMiniEl.classList.add('visible')
+    cardEl.classList.add('hidden')
+    cardEl.classList.remove('visible')
 })
 
+maxBtn.addEventListener('click', () => {
+    cardEl.classList.add('visible')
+    cardMiniEl.classList.remove('visible')
+    cardMiniEl.classList.add('hidden')
+})
+
+
+
+
+// Hide/show about info
+aboutBtn.addEventListener('click', () => {
+    aboutInfo.classList.toggle('visible')
+    sourceEl.classList.toggle('visible')
+
+    if (aboutBtn.dataset.visibility == 'hidden') {
+        aboutBtn.textContent = '– Hide'
+        aboutBtn.dataset.visibility = 'visible'
+    } else {
+        aboutBtn.textContent = '+ About the ISS'
+        aboutBtn.dataset.visibility = 'hidden'
+    }
+})
 
 
 // Making a map and tiles
@@ -136,15 +101,20 @@ function renderDOM() {
             velMi = roundNumber(velMi)
             velMi = formatNumber(velMi)
 
-            //add elements to DOM
+            //add elements to DOM (reg card)
             latEl.textContent = `${lat}°`
             lonEl.textContent = `${lon}°`
             velEl.textContent = `${velMi} mi/hr`
+
+            // add elements to DOM (mini-card)
+            label.textContent = 'Latitude'
+            miniStat.textContent = `${lon}°`
 
             visibility == 'daylight' ? regularMode() : darkMode()
 
             return getGeoLocation(latitude, longitude)
         })
+
         // if ISS is over a country -> return its country code
         .then(function ({
             country_code,
@@ -158,39 +128,14 @@ function renderDOM() {
         }) {
             // get country
             countryEl.textContent = name
+
             // get flag of country
             const imgEl = new Image(30, 20)
             imgEl.src = flag
             imgEl.classList.add('moveDown')
             countryEl.appendChild(imgEl)
-            return getAstros()
         })
 }
 
-function renderAstrosDOM() {
-    getAstros().then(function ({
-        number,
-        people
-    }) {
-        //get # of current astronauts
-        astrosEl1.textContent = `${number}`
-        astrosEl2.textContent = `${number}`
-
-        //get astronaut names
-        let peopleArr = []
-
-        for (let i = 0; i < people.length; i++) {
-            let nameEl = document.createElement("li")
-
-            nameEl.classList.add('card--label')
-            nameEl.textContent = people[i].name
-
-            astroNameEl.appendChild(nameEl)
-            peopleArr.push(people[i].name)
-        }
-    })
-}
-
-renderAstrosDOM()
 renderDOM()
 setInterval(renderDOM, 10000)

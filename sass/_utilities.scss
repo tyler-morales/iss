@@ -11,10 +11,13 @@
     color: var(--card-text) !important;
 }
 
-.show {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
 }
 
 #convertKmToMi {
