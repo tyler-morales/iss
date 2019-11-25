@@ -3,18 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" `tent="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="Description" content="Author: Tyler Morales, Catagory: International Space Station Live Tracker">
 
-    <!-- google font source sans pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap" rel="stylesheet">
     <!-- google font merriwweather -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
     <!-- google font space mono -->
     <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
-    <!-- font awesome -->
-    <link href="/css/all.css" rel="stylesheet">
     <!-- leaflet map api -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -25,12 +21,10 @@
     </script>
 
     <link rel="stylesheet" href="css/style.css">
-    <title>Track the ISS</title>
+    <title>ISS Live Tracker</title>
 </head>
 
 <body>
-
-    <!-- <h1 class="main-title">Where in the world is the <span id="aboutBtn">ISS</span>?</span></h1> -->
 
     <!-- CARD (REG)-->
     <div id="card-reg" class="card">
@@ -45,22 +39,22 @@
             </li>
 
             <li class="card__stats--stat">
-                <img src="icons/lon.png" class="icon" alt="latitude icon">
+                <img src="icons/lon.png" class="icon" alt="longitude icon">
                 Longitude: <span id="lon" class="info-text">⏳</span>
             </li>
 
             <li class="card__stats--stat">
-                <img src="icons/velocity.png" class="icon" alt="latitude icon">
+                <img src="icons/velocity.png" class="icon" alt="velocity icon">
                 Velocity: <span id="vel" class="info-text">⏳</span>
             </li>
 
             <li class="card__stats--stat">
-                <img src="icons/binoculars.png" class="icon" alt="latitude icon">
+                <img src="icons/binoculars.png" class="icon" alt="visibility icon">
                 Visibility: <span id="vis" class="info-text">⏳</span>
             </li>
 
             <li class="card__stats--stat">
-                <img src="icons/globe.png" class="icon" alt="latitude icon">
+                <img src="icons/globe.png" class="icon" alt="country icon">
                 Country: <span id="country" class="info-text">⏳</span>
             </li>
 

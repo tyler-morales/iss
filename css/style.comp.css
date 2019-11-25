@@ -128,7 +128,7 @@ body.transition *:after {
   box-shadow: 0 0 1.8rem 0 rgba(0, 0, 0, 0.25);
   background-color: var(--card-bg);
   border-left: 10px solid var(--card-l-side);
-  margin-top: 110%;
+  margin-top: 75vh;
   margin-left: 2.5rem;
   position: absolute;
   z-index: 10;
@@ -216,13 +216,23 @@ body.transition *:after {
   cursor: help; }
 
 .info-text {
-  color: var(--card-text) !important; }
-
-.visible {
-  display: block; }
+  color: var(--card-text) !important;
+  margin-left: 1rem; }
 
 .hidden {
   display: none; }
 
+.visible {
+  display: block;
+  animation-duration: 1s;
+  animation-name: slidein;
+  transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67); }
+
 #convertKmToMi {
   cursor: pointer; }
+
+@keyframes slidein {
+  from {
+    transform: translateY(-1rem); }
+  to {
+    transform: translateY(0); } }

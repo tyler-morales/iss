@@ -9,8 +9,8 @@
 
 .info-text {
     color: var(--card-text) !important;
+    margin-left: 1rem;
 }
-
 
 .hidden {
     display: none;
@@ -18,8 +18,24 @@
 
 .visible {
     display: block;
+    animation-duration: 1s;
+    animation-name: slidein;
+    transition-timing-function: cubic-bezier(.17,.67,.83,.67);
 }
 
 #convertKmToMi {
     cursor: pointer;
+}
+
+
+
+@keyframes slidein {
+    from {
+        transform: translateY(-1rem);
+    }
+
+    to {
+        transform: translateY(0);
+
+    }
 }
